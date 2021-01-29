@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Feedback</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">   
+    
+    <!--fonts from Google Fonts library-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Ubuntu:wght@300&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="2-Student-Style.css" type="text/css">
+
+</head>
+<body class="m-4">
+
+    <!--according to bootstrap changelog from v4 to v5-->
+<!--The jumbotron component is removed in favor of utility classes-->
+<!--like .bg-light for the background color and .p-* classes to control padding.-->
+<!--I switched to bootstrap 4, it was just confusing at first because-->
+<!--the website automatically directed me to 5-->
+    <div class="jumbotron">
+        <h1>Please provide feedback. You may do so anonymously.</h1>
+    </div>
+
+
+<div class="row"> <!--row div-->
+    <div class="col-md-4"><!--col1 div-->
+
+        <div class="mx-4">
+        <p>Please use this form to send feedback to us about your courses at this school.</p>
+        <p>Your feedback is very important to us. You are welcome to submit your feedback anonymously.</p>
+        <p>If you would like a response to your feedback, please enter your name and email address.</p>
+        </div>
+        
+    </div> <!--end col1 div-->
+    <div class="col-md-8"> <!--col2 div-->
+<!--ml-5 and mr-5 did not work for me for some reason but mx-5 did-->
+    <form class="mx-4">
+
+        <!--Name-->
+
+        <label for="student-name">Name:</label>
+        <input class="form-control" type="text" name="student-name" id="student-name">
+        
+        <!--Email-->
+
+        <label for="student-email">Email:</label>
+        <input class="form-control" type="email" name="student-email" id="student-email">
+
+        <!--Comments (required)-->
+
+        <label for="student-comments">Comments:</label>
+        <textarea class="form-control" rows="5" cols="50" 
+        name="student-comments" id="student-comments" required></textarea>
+
+        <!--Current student radio selection-->
+
+        <label for="current-student">Are you a current student?</label>
+
+        <div class="form-check">
+        <input class="form-check-input" type="radio" 
+        name="current-student" id="current-student-yes" checked="true">
+        <label class="form-check-label" for="current-student-yes">Yes</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" 
+        name="current-student" id="current-student-no">
+        <label class="form-check-label" for="current-student-no">No</label>
+        </div>
+
+        <!--Submit button-->
+        <input class="btn btn-outline-warning mt-4" id="submit-button" 
+        type="submit" value="Submit Feedback">
+    </form>
+    </div> <!--end col2 div-->
+</div> <!--end row div-->
+</body>
+
+</html>
