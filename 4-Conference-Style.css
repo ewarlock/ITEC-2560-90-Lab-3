@@ -1,0 +1,35 @@
+/* General */
+body {
+    background: #101010;
+    background-image: linear-gradient(to bottom left, #101010, #28a745);
+    font-family: 'Comfortaa', sans-serif;
+}
+
+form {
+    background: #FFFFFF;
+    border: 1px solid #28a745;
+    border-radius: 5px;
+}
+
+label {
+    font-weight: bold;
+}
+
+/* Classes */
+
+.jumbotron {
+    background: #28a745;
+    color: #FFFFFF;
+}
+
+.form-control {
+    margin-bottom: 2%;
+}
+
+.form-check {
+    margin-bottom: 1%;
+}
+
+.form-check-label {
+    font-weight: normal;
+}
