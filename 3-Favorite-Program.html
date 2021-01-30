@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Favorite Program</title>
+
+    <!--Bootstrap!-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">   
+    
+    <!--my stylesheet-->
+    <link rel="stylesheet" href="3-Favorite-Program-Style.css" type="text/css">
+
+</head>
+
+<body class="m-4">
+
+    <!--page header-->
+<div class="jumbotron">
+        <h1>DnD Combat Helper</h1>
+</div>
+
+<div class="row m-1"> <!--row div-->
+
+    <!--Program description column-->
+    <div class="col-md-5"> <!--col1 div-->
+
+            <p class="text-justify p-4 content-area">For my C# final last semester I created a program to help keep track
+                of different effects (such as spells or conditions) that come up during
+                 combat when I am running Dungeons and Dragons for my friends. 
+                <br><br>
+                It can be very difficult to keep track of all of the effects 
+                that crop up during combat, as they all have varying durations and 
+                are enacted by the players and monsters at different times. It can also 
+                difficult to keep track of the turn order (referred to as Initiative.)
+                <br><br>
+                I created this program to allow the user to enter the number everyone 
+                rolls for their Initiative score or turn order. The program then cycles 
+                through all of the players' turns based on this turn order, and displays 
+                the name of whoever's turn it is at the top.
+                <br><br>           
+                The program also stores different effects and their durations in a database. 
+                Effects can then be applied to a combat session, and the duration counter 
+                will automatically count down as the user cycles through turns. Effects 
+                that have expired (when the duration counter reaches 0) are automatically removed.
+                <br><br>
+                I had a lot of fun working on this program and have already started to use 
+                it when I run Dungeons and Dragons. I'm planning on working on it more during 
+                spring break and over the summer!
+            </p>
+            
+    </div> <!--end col1 div-->
+
+    <!--program examples column-->
+    <div class="col-md-7"> <!--col2 div-->
+        
+        <!--screenshot of program running-->
+        <img title="Combat Helper Active" alt="Example image showing use of the DnD Combat Helper"
+        src="combat-helper-active.png" class="mx-auto mb-4 d-block img-fluid"/>
+
+        <!--section for code snippets-->
+        <div class="m-2 p-3 content-area"> <!--container for formatting-->
+
+            <p>Method that cycles through turn order:</p>
+
+            <!--code snippet 1-->
+            <pre><code>
+    private void AddInitiative()
+    {
+        if (initiativeCount &lt; initiative.Count)
+        {
+            //cycle thru initiative order
+            lblCreatureTurn.Text = initiative.Values[initiativeCount];
+            initiativeCount++;
+        }
+        else
+        {
+            //reset if initiativeCount exceeds initiative list
+            initiativeCount = 0;
+            lblCreatureTurn.Text = initiative.Values[initiativeCount];
+            initiativeCount++;
+        }
+    }
+            </code></pre> <!--end code snippet 1-->
+
+            <p>Adds an effect from the database to the current combat session:</p>
+
+            <!--code snippet 2-->
+            <pre><code>
+    private void btnAddToCombat_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            //create new effect
+            Effect effect = new Effect();
+
+            //assign properties of effect from database row by effect name
+            effect = DnDDB.GetEffect(cmbEffectNames.SelectedItem.ToString());
+        
+            //add Targets to effect if present
+            if (txtTargets.Text != "")
+                effect.Targets = txtTargets.Text;
+            txtTargets.Clear();
+
+            //add effect to list of current effects
+            effectsList.Add(effect);
+
+            //refresh effects list box
+            PopulateListBox();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message + "\n\n" +
+                ex.GetType().ToString() + "\n" +
+                ex.StackTrace, "Exception");
+        }
+    }
+            </code></pre> <!--end code snippet 2-->
+
+        </div> <!--end formatting container div-->
+
+    </div> <!--end col2 div-->
+</div> <!--end row div-->
+
+</body>
+
+</html>

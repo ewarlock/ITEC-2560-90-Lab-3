@@ -1,0 +1,31 @@
+/* General */
+
+body {
+    background: #152415;
+    color: #DDDDDD;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* to format sections of code on page */
+pre {
+    background: #101010;
+    border: 2px solid #152415;
+    color: #FFFFFF;
+}
+
+/* Classes */
+
+.jumbotron {
+    text-align: center;
+    text-transform: uppercase;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: #091109;
+}
+
+/* general content container */
+.content-area {
+    background: #121222;
+    border: 2px solid #091109;
+    border-radius: 4px;
+}
+
